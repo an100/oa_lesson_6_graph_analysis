@@ -1,0 +1,51 @@
+
+SQL*Loader: Release 11.2.0.3.0 - Production on Wed Jun 5 12:46:55 2013
+
+Copyright (c) 1982, 2011, Oracle and/or its affiliates.  All rights reserved.
+
+Control File:   load_staging_data.ctl
+Data File:      ./rdf_staging_table.csv
+  Bad File:     rdf_staging_table.bad
+  Discard File:  none specified
+ 
+ (Allow all discards)
+
+Number to load: ALL
+Number to skip: 0
+Errors allowed: 50
+Bind array:     64 rows, maximum of 256000 bytes
+Continuation:    none specified
+Path used:      Conventional
+
+Table STAGE_TABLE, loaded from every logical record.
+Insert option in effect for this table: INSERT
+
+   Column Name                  Position   Len  Term Encl Datatype
+------------------------------ ---------- ----- ---- ---- ---------------------
+RDF$STC_SUB                         FIRST     *  WHT      CHARACTER            
+RDF$STC_PRED                         NEXT     *  WHT      CHARACTER            
+RDF$STC_OBJ                          NEXT     *  WHT      CHARACTER            
+
+Record 1288: Rejected - Error on table STAGE_TABLE, column RDF$STC_SUB.
+Column not found before end of logical record (use TRAILING NULLCOLS)
+
+Table STAGE_TABLE:
+  1287 Rows successfully loaded.
+  1 Row not loaded due to data errors.
+  0 Rows not loaded because all WHEN clauses were failed.
+  0 Rows not loaded because all fields were null.
+
+
+Space allocated for bind array:                  49536 bytes(64 rows)
+Read   buffer bytes: 1048576
+
+Total logical records skipped:          0
+Total logical records read:          1288
+Total logical records rejected:         1
+Total logical records discarded:        0
+
+Run began on Wed Jun 05 12:46:55 2013
+Run ended on Wed Jun 05 12:46:57 2013
+
+Elapsed time was:     00:00:02.04
+CPU time was:         00:00:00.01

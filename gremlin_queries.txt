@@ -1,0 +1,7 @@
+g.loadGraphML('worldcup.graphml')
+g.V.has('team').groupBy{it.team}{it}{it.centrality.max()}.cap
+g.V.has('centrality').order{it.b.centrality <=> it.a.centrality}.transform{[it.name, it.team, it.centrality]}[1..10]
+g.v('GOAL').inE.outV.order{it.b.centrality <=> it.a.centrality}.transform{[it.name, it.team, it.centrality]}[1..10]
+
+g.v('GOAL').in.sideEffect{it.scores =it.outE.hasNot("long_pass").weight.sum()}.iterate
+g.V.has('scores').order{it.b.centrality <=> it.a.centrality}.transform{[it.name, it.team, it.centrality, it.scores]}[1..10]
